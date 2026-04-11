@@ -80,6 +80,15 @@
     const menu = document.getElementById('menu');
     menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
   }
+
+     // Add event listener to document to close menu when clicked outside
+  document.addEventListener('click', (e) => {
+    const menu = document.getElementById('menu');
+    const menuBtn = document.querySelector('.menu-btn');
+    if (!menu.contains(e.target) && !menuBtn.contains(e.target)) {
+      menu.style.display = 'none';
+    }
+  });
 </script>
 
 <style>
@@ -233,6 +242,16 @@
       const dropdownContent = btn.nextElementSibling;
       dropdownContent.classList.toggle('show');
     });
+  });
+
+    // Add event listener to document to close dropdowns when clicked outside
+  document.addEventListener('click', (e) => {
+    if (!e.target.matches('.dropdown-btn') && !e.target.closest('.dropdown-content')) {
+      const dropdownContents = document.querySelectorAll('.dropdown-content');
+      dropdownContents.forEach(content => {
+        content.classList.remove('show');
+      });
+    }
   });
 </script>
 
