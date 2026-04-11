@@ -238,17 +238,23 @@
   // Add event listener to dropdown buttons
   const dropdownBtns = document.querySelectorAll('.dropdown-btn');
   dropdownBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
       const dropdownContent = btn.nextElementSibling;
+      // Close other dropdowns
+      document.querySelectorAll('.dropdown-content').forEach(content => {
+        if (content !== dropdownContent) {
+          content.classList.remove('show');
+        }
+      });
       dropdownContent.classList.toggle('show');
     });
   });
 
-    // Add event listener to document to close dropdowns when clicked outside
+  // Add event listener to document to close dropdowns when clicked outside
   document.addEventListener('click', (e) => {
     if (!e.target.matches('.dropdown-btn') && !e.target.closest('.dropdown-content')) {
-      const dropdownContents = document.querySelectorAll('.dropdown-content');
-      dropdownContents.forEach(content => {
+      document.querySelectorAll('.dropdown-content').forEach(content => {
         content.classList.remove('show');
       });
     }
