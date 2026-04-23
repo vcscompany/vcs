@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vieclarino | Construction Supply</title>
+    <style>
+        /* Smooth Scrolling */
+        html { scroll-behavior: smooth; }
+
+        :root { --navy: #1D3557; --orange: #E67E22; --gray: #F8F9FA; }
+        body { font-family: 'Arial', sans-serif; margin: 0; color: #333; }
+        
+        /* Header & Logo */
+        header { 
+            padding: 10px;
+            display: flex; 
+            justify-content: space-between; 
+            align-items: right; 
+            border-bottom: 3px solid var(--orange); 
+            background: white; 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .logo-link { display: flex; align-items: center; text-decoration: none; }
+        .company-logo { height: 70px; width: auto; }
+
+        nav a { margin-left: 25px; text-decoration: none; color: var(--navy); font-weight: 600; text-transform: uppercase; font-size: 0.85rem; transition: 0.3s; }
+        nav a:hover { color: var(--orange); }
+
+        /* Sections */
+        .hero { position: relative; background: var(--navy); height: 400px; color: white; display: flex; align-items: center; padding-top: 90px ; margin-top: -90px; }
+        .hero-bg { position: absolute; top:0; left:0; width:100%; height:100%; background: url('https://unsplash.com') center/cover; opacity: 0.4; }
+        .hero-content { position: relative; z-index: 2; }
+        
+        .section-padding { padding: 90px 8%; }
+        .main-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 40px; }
+        
+        .mission-box { background: var(--gray); padding: 30px; border-left: 5px solid var(--orange); margin-top: 30px; }
+        
+        /* Sidebar Inventory */
+        .sidebar { background: white; border: 1px solid #eee; padding: 90px 8%; margin: 70px 8%; box-shadow: 0 4px 12px rgba(0,0,0,0.05); height: fit-content; width: 250px; }
+        .sidebar h3 { color: var(--navy); border-bottom: 2px solid var(--orange); padding-bottom: 10px; margin-bottom: 15px; }
+        .sidebar ul { list-style: none; padding: 0; }
+        .sidebar li { padding: 10px 0; border-bottom: 1px solid #f9f9f9; font-weight: 500; font-size: 0.9rem; }
+
+        /* Footer/Contact Area */
+        footer { background: var(--navy); color: white; padding: 60px 8%; text-align: center; }
+        .contact-info { margin: 20px 0; font-size: 1.1rem; }
+        .contact-info { list-style: none; padding: 0; }
+        .btn-contact { background: var(--orange); color: white; padding: 15px 40px; text-decoration: none; display: inline-block; font-weight: bold; border-radius: 4px; margin-top: 20px; }
+
+        @media (max-width: 768px) { .main-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+    <header>
+        
+        <button class="menu-btn" onclick="toggleMenu()">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+
+<div class="menu" id="menu">
+  <ul>     
+    <li><a href="#home">Home</a></li>          
+    <li><a href="#about">About Us</a></li>
+    <li><a href="#product">Products & Services</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</div>
+
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById('menu');
+    menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+  }
+
+  // Add event listener to document to close menu when clicked outside
+  document.addEventListener('click', (e) => {
+    const menu = document.getElementById('menu');
+    const menuBtn = document.querySelector('.menu-btn');
+    if (!menu.contains(e.target) && !menuBtn.contains(e.target)) {
+      menu.style.display = 'none';
+    }
+  });
+</script>
+
+<style>
+  .menu-btn {
+  position: relative;
+  width: 30px;
+  height: 25px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+  .menu-btn span {
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background: #333;
+    transition: 0.3s;
+  }
+
+  .menu-btn span:nth-child(1) {
+    top: 0;
+  }
+
+  .menu-btn span:nth-child(2) {
+    top: 10px;
+  }
+
+  .menu-btn span:nth-child(3) {
+    top: 20px;
+  }
+
+  .menu {
+    display: none;
+    position: absolute;
+    top: 40px;
+    left: 10px;
+    background: #fff;
+    padding: 10px;
+    border: 1px solid #ddd;
+  }
+
+  .menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .menu li {
+    margin-bottom: 10px;
+  }
+
+  .menu a {
+    text-decoration: none;
+    color: #333;
+  }
+</style>
+        
+        
+         <!-- Using provided image in the same folder as the html file -->
+        
+                   <img src="content://com.android.externalstorage.documents/document/primary%3Aks%2FVCS%20Company%2Fvcscompany.png" alt="Vieclarino Logo" class="company-logo"> 
+        
+        
+    </header>
+
+
+    <section id="home" class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <h1 style="font-size: 3rem;">BUILDING TRUST, ONE SUPPLY AT A TIME</h1>
+            <p>Your premier partner for construction supplies in San Jose, Antique.</p>
+            <a href="#contact" class="btn-contact">Get a Quote</a>
+        </div>
+    </section>
+
+
+    <!-- ABOUT SECTION -->
+    <div id="about" class="section-padding main-grid">
+        <div class="profile-info">
+            <h2 style="color: var(--orange);">About Us</h2><br>
+            <hr style="width: 65px;height: 5px; background-color:black; border: none;margin-left: 0; margin-top: -30px;">
+            <p style="text-indent: 50px;">Founded on March 21, 2026, we are a nimble team of three dedicated founders—John Paul Clarito, John Francis Samillano, and James Angelo Viesca—based in San Jose, Antique, Philippines, passionate about powering the builders of tomorrow.
+               At our core, we're more than a construction supply company; we’re partners in building the future, one project at a time. 
+               Sourcing premium materials, tools, and innovative solutions for contractors, developers, and visionaries, we deliver reliability, quality, and competitive value to fuel your next big build. 
+               From foundational steel and sustainable lumber to cutting‑edge equipment, our curated supply chain supports residential, commercial, and infrastructure projects with speed and precision.
+               With a startup spirit and industry expertise, we're eager to collaborate, scale with you, and construct lasting success. 
+               Let's partner up and build the future together from San Jose, Antique.</p><br>   
+            <h2 style="color: var(--orange);">Mission</h2><br>
+            <hr style="width: 65px;height: 5px; background-color:black; border: none;margin-left: 0; margin-top: -30px;">
+            <p style="text-indent: 50px;">To deliver top-quality construction supplies with unmatched speed and unwavering reliability, empowering builders, contractors, and projects to succeed on time and exceed expectations every single time.</p><br>
+            <h2 style="color: var(--orange);">Vision</h2><br>
+            <hr style="width: 65px;height: 5px; background-color:black; border: none;margin-left: 0; margin-top: -30px;">
+            <p style="text-indent: 50px;">To be the most trusted leader in the construction supply industry, where quality materials arrive fast and reliably, revolutionizing how projects are built efficiently and durably across every community we serve.</p><br>
+            <div class="mission-box">
+              <h3 style="color: var(--orange);">Company Goals</h3><br>
+              <hr style="width: 65px;height: 5px; background-color:black; border: none;margin-left: 0; margin-top: -30px;">
+                <p><strong>• Operational Excellence:</strong> To establish the fastest and most reliable supply chain network in the local construction industry.<br>
+                <strong>• Market Leadership:</strong> To become the primary “top-of-mind” supplier for contractors and builders across all served communities.<br>
+                <strong>• Customer Success:</strong> To empower clients by ensuring zero project delays caused by material shortages or delivery issues.</p><br>
+              <h3 style="color: var(--orange);">Objectives</h3><br>
+              <hr style="width: 65px;height: 5px; background-color:black; border: none;margin-left: 0; margin-top: -30px;">
+                <p><strong>• Speed & Efficiency:</strong> Achieve a 98% on-time delivery rate for all construction supply orders within the next 12 months.<br>
+                <strong>• Quality Assurance:</strong> Ensure that 100% of products sourced and delivered meet or exceed national industry safety and durability standards.<br>
+                <strong>• Community Expansion:</strong> Expand supply operations to three new communities or regions within the next two fiscal years to increase accessibility for local builders.<br>
+                <strong>• Customer Trust:</strong> Maintain a customer satisfaction rating of 4.5/5 or higher, specifically focusing on reliability and communication during the fulfillment process.<br>
+                <strong>• Partnership Growth:</strong> Secure formal supply partnerships with at least 10 major local contracting firms by the end of the year to solidify market presence.</p><br>
+              <h3 style="color: var(--orange);">Core Values</h3><br>
+              <hr style="width: 65px;height: 5px; background-color:black; border: none;margin-left: 0; margin-top: -30px;">
+                <p><strong>• Safety:</strong> The highest priority, ensuring a safe environment for employees, clients, and partners.<br>
+                <strong>• Integrity & Honesty:</strong> Operating with transparency, maintaining ethical standards, and honoring commitments.<br>
+                <strong>• Quality & Excellence:</strong> Providing superior products and high-quality service, ensuring excellence in all tasks.<br>
+                <strong>• Customer Service & Satisfaction:</strong> Dedicated to fulfilling customer needs and building lasting relationships.<br>
+                <strong>• Accountability & Responsibility:</strong> Holding oneself accountable for results, safety, and project deadlines.<br>
+                <strong>• Teamwork & Collaboration:</strong> Fostering a respectful, united, and collaborative workplace.<br>
+                <strong>• Reliability:</strong> Demonstrating consistency and dependability in service and product delivery.</p><br>
+              </div>
+        </div>
+
+
+        <!-- INVENTORY SECTION -->
+<div id="product" class="sidebar">
+  <h3>Products & Services</h3>
+  <ul>
+    <li>
+      <p>• Structural & Raw Materials</p>                                               
+      <p>• Roofing & Waterproofing</p>
+      <p>• Finishing & Interiors</p>                                                        
+      <p>• Scaffolding & Hardware</p>
+      <p>• Plumbing & Electrical</p>                                                
+      <p>• Nationwide/Localized Delivery</p>
+    </li>
+  </ul>
+</div>
+
+    
+    <!-- CONTACT SECTION -->
+    <footer id="contact">
+        <h2 style="text-transform: uppercase;">Connect With Our Team</h2>
+        <div class="contact-info">
+            <p><strong>Co-Founder & CEO</strong></p>
+            <p>John Paul Clarito</p>
+            <p><strong>Co-Founders</strong> <li>John Francis Samillano</li></p>
+            <p><li>James Angelo Viesca</li></p>
+            <p style="margin-top: 40px;">📧 vieclarinocompany@gmail.com</p>
+            <p>📍 San Jose, Antique, Philippines</p>
+        </div>
+        <a href="mailto:vieclarinocompany@gmail.com" class="btn-contact">EMAIL US DIRECTLY</a>
+        <p style="margin-top: 40px; opacity: 0.6; font-size: 0.8rem;">&copy; 2026 Vieclarino Construction Supply. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
